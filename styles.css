@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Bacasime+Antique&family=Poppins:wght@300&display=swap');
+
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    font-family: 'Poppins',
+        sans-serif;
+    background: rgb(100, 95, 151);
+    background: linear-gradient(156deg, rgba(100, 95, 151, 1) 10%, rgba(235, 196, 191, 1) 48%, rgba(124, 152, 199, 1) 100%);
+    color: white;
+}
+
+hr {
+    color: white;
+}
+h
+
+.form-control {
+
+    color: #333;
+    background: #ecf0f3;
+    box-shadow: inset 10px 0px 19px 12px #d0d5db,
+        9px 8px 17px 0px #fff;
+    border-radius: 30px 30px 30px 30px;
+
+    font-size: 22px;
+
+
+
+}
+
+.btn {
+    font-size: 22px;
+    color: #333;
+    background: #ecf0f3;
+    box-shadow: inset 10px 0px 19px 12px #d0d5db,
+        5px 8px 20px 0px #fff;
+    border-radius: 30px;
+
+
+}
+
+.weather-info {
+    text-align: center;
+}
+
+.weather-day {
+    font-size: 70px;
+
+}
+
+.deg-header {
+    font-size: 74px;
+}
+
+.fah-convert {
+    font-size: 57px;
+}
+
+.cel-convert,
+.revert-convert {
+    font-size: 44px;
+}
+
+.head-img img {
+    margin: 12px 35px;
+    width: 30%;
+    /* padding: 10px; */
+    /* height: 63%; */
+    display: block;
+    padding: 40px 10px;
+}
+
+.row cols-lg-5 {
+    text-align: center;
+    font-size: 15px;
+    padding: 30px;
+    margin: 20px;
+
+}
+
+div.col {
+    text-align: center;
+    margin: 15px 15px 14px 0px;
+    padding: 17px 19px 15px 0px;
+    font-size: 22px;
+
+}
+
+div.col p {
+    padding: 10px;
+}
+
+div.col-6 {
+    width: 25%;
+    margin-top: 30px;
+}
+
+.weather-values:hover {
+    cursor: pointer;
+
+}
+
+div.container p {
+    padding-top: 45px;
+    font-size: 25px;
+}
