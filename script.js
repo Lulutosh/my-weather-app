@@ -1,6 +1,7 @@
- 
+ //variable that stores newDate constructor
  let current = new Date();
 
+ //function that displays current day of week and time
  function displayDate() {
      let dateN = document.querySelector('p');
      let daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -11,7 +12,7 @@
 
  displayDate();
 
- // Challenge 2 - Displaying City Name and Temperature
+ //storing api key for authorization and celsius-fahrenheight conversion 
  let apiKey = "a867e25f2d83db579421a57fd8e937ec";
  let cityDisplay = document.querySelector('.city-name');
  let formSubmit = document.querySelector('.input-group');
@@ -21,12 +22,18 @@
 
  function getWeather(city) {
      let apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey + "&units=metric";
-
+console.log(apiUrl);
      axios.get(apiUrl).then(function (response) {
          const temperature = response.data.main.temp;
          cityDisplay.innerHTML = `Current temperature in ${city} is ${temperature}°C`;
          fahValue.innerHTML = `${Math.round(temperature * 9 / 5 + 32)} &deg;F`;
-         deleteDefaultCelsius.remove();
+          let descriptionDisplay = document.querySelector('.description');
+         descriptionDisplay.innerHTML = response.data.weather[0].description;
+                 
+         
+         console.log(response.data.weather[0].description);
+         
+        // deleteDefaultCelsius.remove();
      }).catch(function (error) {
          console.error("Error fetching weather data:", error);
      });
@@ -36,10 +43,12 @@
      event.preventDefault();
      let search = document.querySelector(".form-control");
      let userCity = search.value;
+    
      getWeather(userCity);
  });
 
- // Challenge 3 - Convert Celsius to Fahrenheit and Vice Versa
+ // Convert Celsius to Fahrenheit and Vice Versa
+ 
  function fahrenheitChange(event) {
      event.preventDefault();
      let celsiusValue = parseInt(celsiusDis.innerHTML, 10);
@@ -48,6 +57,7 @@
      deleteDefaultCelsius.remove();
  }
 
+ //convert fahrenheight to celsius
  function celsiusChange(event) {
      event.preventDefault();
      let fahrenheitValue = parseInt(fahValue.innerHTML, 10);
