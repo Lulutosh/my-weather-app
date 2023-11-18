@@ -14,7 +14,9 @@
 </head>
 
 <body>
+    <div class="weather-app">
     <div class="container">
+        
         <form >
         <div class="row">
             <div class="col-9">
@@ -30,29 +32,45 @@
             </div>
         </div>
         </form>
+<main>
 
-        <p></p>
 
-        <div class="row cols-lg-2">
+        <!-- <p></p> -->
+
+        <div class="row cols-lg-4">
             <div class="col">
-                <div class="city-name"></div>
-                <div class="head-img">
+                <h1 class="city-name" id="city-name">Cape Town</h1>
+               
+                 
+                 <p class="current-details">
+                     <span id="current-date">Saturday 13:15</span>, moderate rain <br>
+                     Humidity: <strong>87%</strong>, Wind: <strong>7.2km/h</strong>
+                 </p>
+                <!-- <div class="city-name"></div> -->
+                <!-- <div class="head-img">
                     <img src="media/sun_coming_out.png" alt="cloudy-icon">
-                </div>
+                </div> -->
             </div>
+            <div class="col"></div>
             <div class="col">
                 <div class="weather-info">
-                    <h3 class="weather-day">Today</h3>
+                    <!-- removing as per new layout
+                    <h3 class="weather-day">Today</h3> -->
                     <div class="weather-values">
                         <h4 class="deg-header">
+                             <span class="head-img">
+                                 <img src="media/sun_coming_out.png" alt="cloudy-icon">
+                             </span>
+                            <!-- <span class="current-temperature-icon">☀️</span -->
                             <span class="fah-convert">20 </span>
-                            <span class="default-c">&deg; C</span>
+                            <span class="default-c">&deg; C / </span>
+                             <span class="cel-convert"> &deg; F</span>
                         </h4>
                         <div>
+                            <!-- removing due to layout change, remember to incorporate in js for click event
+                            <span class="revert-convert"> &deg; C / </span> -->
 
-                            <span class="revert-convert"> &deg; C / </span>
-
-                            <span class="cel-convert"> &deg; F</span>
+                            <!-- <span class="cel-convert"> &deg; F</span> -->
                         </div>
                         <!--removing for now, depends on API later
                 <h5>Precipatation 25%</h5>
@@ -71,6 +89,7 @@
                 <hr>
             </div>
         </div>
+        </main>
         <div class="row  cols-lg-5  ">
             <div class="col ">
                 <p>Tomorrow</p>
@@ -108,6 +127,7 @@
          <a href="https://profound-entremet-f31620.netlify.app/" target="_blank">hosted on Netlify</a>
      </p>
  </footer>
+ </div>
 </body>
 
 </html>

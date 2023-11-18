@@ -3,7 +3,7 @@
 
  //function that displays current day of week and time
  function displayDate() {
-     let dateN = document.querySelector('p');
+     let dateN = document.getElementById('current-date'); //moved this to id 'current-details'
      let daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
      let curDay = daysOfWeek[current.getDay()];
      let timeNow = `${curDay} ${current.getHours()}:${current.getMinutes()}`;
