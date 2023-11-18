@@ -25,15 +25,20 @@ body {
 hr {
     color: white;
 }
-h
+
+form {
+    border-bottom: 1px solid #f9f7fe;
+    margin-top: 40px;
+    padding-bottom: 30px;
+}
 
 .form-control {
 
     color: #333;
     background: #ecf0f3;
     box-shadow: inset 10px 0px 19px 12px #d0d5db,
-        9px 8px 17px 0px #fff;
-    border-radius: 30px 30px 30px 30px;
+        9px 5px 17px 0px #fff;
+    height: 50px;
 
     font-size: 22px;
 
@@ -42,14 +47,22 @@ h
 }
 
 .btn {
-    font-size: 22px;
+    font-size: 19px;
     color: #333;
     background: #ecf0f3;
-    box-shadow: inset 10px 0px 19px 12px #d0d5db,
-        5px 8px 20px 0px #fff;
-    border-radius: 30px;
+    border: none;
+    padding: 15px 0;
+    font-weight: 500;
+    width: 50%;
+    height: 50px;
+     font-family: 'Poppins',
+     sans-serif;
 
-
+}
+.btn:hover{
+    color: #fff;
+    font-weight: 700;
+    background-color: grey;
 }
 
 .weather-info {
