@@ -147,7 +147,7 @@ div.col-6 {
 
 div.container p {
     padding-top: 45px;
-    font-size: 25px;
+    font-size: 11px;
 }
 .default-c,
 .cel-convert {
@@ -170,13 +170,25 @@ div.container p {
 }
 p.current-details{
     
-        font-size: 18px;
-        /* width: 51%; */
+        
         line-height: 27px;
         padding: 0;
-       display: inline;
-        margin-top: 23%;
-        
+       display: block;
+       
+        text-align: left;
         letter-spacing: 3px;
+
+     
+            font-weight: 400;
+            
+            font-size: initial;
+            margin-top: 16px;
+            position: relative;
+            top: 5px;
+            left: 0px;
+        
   
+}
+p.current-details strong{
+    color: #d5d764;
 }
