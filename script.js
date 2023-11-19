@@ -12,10 +12,23 @@
 
  displayDate();
 
+ //search engine function, display the city name the user enters
+ let formSubmit = document.getElementById('btn');
+ let cityDisplay = document.querySelector('.city-name');
+ console.log(formSubmit);
+ formSubmit.addEventListener('click', function (event) {
+     event.preventDefault();
+     let search = document.querySelector(".form-control");
+     let userCity = search.value;
+     cityDisplay.innerHTML = userCity;
+     console.log(search);
+     console.log(userCity);
+     //getWeather(userCity);
+ });
  //storing api key for authorization and celsius-fahrenheight conversion 
  let apiKey = "a867e25f2d83db579421a57fd8e937ec";
- let cityDisplay = document.querySelector('.city-name');
- let formSubmit = document.querySelector('.input-group');
+ 
+ //let formSubmit = document.getElementById('btn');
  let fahValue = document.querySelector('.fah-convert');
  let celsiusDis = document.querySelector('.cel-convert');
  let deleteDefaultCelsius = document.querySelector('.default-c');
@@ -25,7 +38,7 @@
 console.log(apiUrl);
      axios.get(apiUrl).then(function (response) {
          const temperature = response.data.main.temp;
-         cityDisplay.innerHTML = `Current temperature in ${city} is ${temperature}°C`;
+       //  cityDisplay.innerHTML = `Current temperature in ${city} is ${temperature}°C`;
          fahValue.innerHTML = `${Math.round(temperature * 9 / 5 + 32)} &deg;F`;
           let descriptionDisplay = document.querySelector('.description');
          descriptionDisplay.innerHTML = response.data.weather[0].description;
@@ -39,13 +52,6 @@ console.log(apiUrl);
      });
  }
 
- formSubmit.addEventListener('submit', function (event) {
-     event.preventDefault();
-     let search = document.querySelector(".form-control");
-     let userCity = search.value;
-    
-     getWeather(userCity);
- });
 
  // Convert Celsius to Fahrenheit and Vice Versa
  
