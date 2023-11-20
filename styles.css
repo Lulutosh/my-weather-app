@@ -203,3 +203,16 @@ p.current-details strong {
 footer{
     color: #333;
 }
+.deg-min,
+.deg-max {
+    font-size: 11px;
+}
+.row.cols-sm-5
+ {
+    
+    justify-content: space-around;
+    text-align: center;
+}
+.col-lg-2 img {
+    width: 100%;
+}
