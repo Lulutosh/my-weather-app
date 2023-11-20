@@ -104,26 +104,26 @@
  let deleteDefaultCelsius = document.querySelector('.default-c');
 
 
- //notr to self- delete function, get code you need
- function getWeather(city) {
-     //  let apiUrl = "https://api.shecodes.io/weather/v1/current?query={query}&key={key}";
-     console.log(apiUrl);
-     axios.get(apiUrl).then(function (response) {
-         const temperature = response.data.main.temp;
-         //  cityDisplay.innerHTML = `Current temperature in ${city} is ${temperature}°C`;
-         fahValue.innerHTML = `${Math.round(temperature * 9 / 5 + 32)} &deg;F`;
-         let descriptionDisplay = document.querySelector('.description');
-         descriptionDisplay.innerHTML = response.data.weather[0].description;
+ function displayForecast(){
+     let forecastElement = document.querySelector('.cols-sm-5');
 
-
-         console.log(response.data.weather[0].description);
-
-         // deleteDefaultCelsius.remove();
-     }).catch(function (error) {
-         console.error("Error fetching weather data:", error);
-     });
+     let forecastDays = ['mon', 'tues', 'wed', 'thurs', 'fri'];
+     let forecastHtml = '';
+     forecastDays.forEach(function(day){
+        forecastHtml = forecastHtml +
+     
+            `<div class="col-lg-2 ">
+                <p>${day}</p>
+                    <img src="media/forecast_rain.png" alt="">
+                        <div>
+                            <span class="deg-min">14 &deg;</span>
+                            <span class="deg-max">14 &deg;</span>
+                        </div>
+            </div>`;
+     })
+     forecastElement.innerHTML = forecastHtml;
  }
-
+displayForecast();
 
  // Convert Celsius to Fahrenheit and Vice Versa
 
