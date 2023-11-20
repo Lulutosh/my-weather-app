@@ -15,119 +15,113 @@
 
 <body>
     <div class="weather-app">
-    <div class="container">
-        
-        <form >
-        <div class="row">
-            <div class="col-9">
-                
-                    <input class="form-control" type="text" placeholder="Enter your city">
-                    
-                    <!-- <button class="btn " type="button">Search</button> -->
+        <div class="container">
 
-            </div>
+            <form>
+                <div class="row">
+                    <div class="col-9">
+                        <input class="form-control" type="text" placeholder="Enter your city">
+                    </div>
 
-            <div class="col-3 p-0">
-<input type="submit" class="btn" id="btn" value="Search">
-            </div>
-        </div>
-        </form>
-<main>
+                    <div class="col-3 p-0">
+                        <input type="submit" class="btn" id="btn" value="Search">
+                    </div>
+                </div>
+            </form>
+            <main>
 
 
-        <!-- <p></p> -->
+                <div class="row cols-lg-4">
+                    <div class="col">
+                        <h1 class="city-name" id="city-name"></h1>
 
-        <div class="row cols-lg-4">
-            <div class="col">
-                <h1 class="city-name" id="city-name"></h1>
-               
-                 
-                 <p class="current-details">
-                     <span id="current-date">Saturday 13:15</span>,<span id="description-weather"> moderate rain </span><br>
-                     Humidity: <strong>13%</strong> <br>Wind: <strong>7.2km/h</strong>
-                 </p>
-                <!-- <div class="city-name"></div> -->
-                <!-- <div class="head-img">
-                    <img src="media/sun_coming_out.png" alt="cloudy-icon">
-                </div> -->
-            </div>
-            <div class="col"></div>
-            <div class="col">
-                <div class="weather-info">
-                    <!-- removing as per new layout
-                    <h3 class="weather-day">Today</h3> -->
-                    <div class="weather-values">
-                        <h4 class="deg-header">
-                             <span class="head-img">
-                                 <img src="media/sun_coming_out.png" alt="cloudy-icon">
-                             </span>
-                            <!-- <span class="current-temperature-icon">☀️</span -->
-                            <span class="fah-convert"> </span>
-                            <span class="default-c">&deg; C / </span>
-                             <span class="cel-convert"> &deg; F</span>
-                        </h4>
-                        <div>
-                            <!-- removing due to layout change, remember to incorporate in js for click event
+
+                        <p class="current-details">
+                            <span id="current-date">Saturday 13:15</span>,<span id="description-weather"> moderate rain
+                            </span><br>
+                            Humidity: <strong>13%</strong> <br>Wind: <strong>7.2km/h</strong>
+                        </p>
+                    </div>
+
+                    <div class="col"></div>
+                    <div class="col">
+                        <div class="weather-info">
+                            
+                            <div class="weather-values">
+                                <h4 class="deg-header">
+                                    <div id="icon">
+                                        <!-- <span class="head-img">
+                                            <img src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
+                                                alt="cloudy-icon">
+                                        </span> -->
+                                    </div>
+                                   
+                                    <span class="fah-convert"> </span>
+                                    <span class="default-c">&deg; C / </span>
+                                    <span class="cel-convert"> &deg; F</span>
+                                </h4>
+                                <div>
+                                    <!-- removing due to layout change, remember to incorporate in js for click event
                             <span class="revert-convert"> &deg; C / </span> -->
 
-                            <!-- <span class="cel-convert"> &deg; F</span> -->
-                        </div>
-                        <!--removing for now, depends on API later
+                                    <!-- <span class="cel-convert"> &deg; F</span> -->
+                                </div>
+                                <!--removing for now, depends on API later
                 <h5>Precipatation 25%</h5>
                 <h5>Wind 5km/h</h5>
                 -->
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
-            </div>
-        </div>
 
-
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="description"></div>
-                <hr>
-            </div>
-        </div>
-        </main>
-        <div class="row  cols-lg-5  ">
-            <div class="col ">
-                <p>Tomorrow</p>
-                <img src="media/forecast_rain.png" alt="">
-                <p>14 &deg;</p>
-            </div>
-            <div class="col ">
-                <p>Friday</p>
-                <img src="media/cloudy_element (2).png" alt="">
-                <p>15 &deg;</p>
-            </div>
-            <div class="col ">
-                <p>Saturday</p>
-                <img src="media/cloud_sun.png" alt="">
-                <p>20 &deg;</p>
-            </div>
-            <div class="col ">
-                <p>Sunday</p>
-                <img src="media/sun_coming_out.png" alt="">
-                <p>21 &deg;</p>
-            </div>
-            <div class="col ">
-                <p>Monday</p>
-                <img src="media/sun_sunny.png" alt="">
-                <p>22 &deg;</p>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="description"></div>
+                        <hr>
+                    </div>
+                </div>
+            </main>
+            <div class="row  cols-lg-5  ">
+                <div class="col ">
+                    <p>Tomorrow</p>
+                    <img src="media/forecast_rain.png" alt="">
+                    <p>14 &deg;</p>
+                </div>
+                <div class="col ">
+                    <p>Friday</p>
+                    <img src="media/cloudy_element (2).png" alt="">
+                    <p>15 &deg;</p>
+                </div>
+                <div class="col ">
+                    <p>Saturday</p>
+                    <img src="media/cloud_sun.png" alt="">
+                    <p>20 &deg;</p>
+                </div>
+                <div class="col ">
+                    <p>Sunday</p>
+                    <img src="media/sun_coming_out.png" alt="">
+                    <p>21 &deg;</p>
+                </div>
+                <div class="col ">
+                    <p>Monday</p>
+                    <img src="media/sun_sunny.png" alt="">
+                    <p>22 &deg;</p>
+                </div>
             </div>
         </div>
     </div>
+    <footer>
+        <p>
+            This project was coded by
+            <a href="https://github.com/Lulutosh" target="_blank">Lusanda Zuma</a> and is
+            <a href="https://github.com/Lulutosh/weather-sandbox-app.git" target="_blank"> on GitHub</a> and
+            <a href="https://profound-entremet-f31620.netlify.app/" target="_blank">hosted on Netlify</a>
+        </p>
+    </footer>
     </div>
- <footer>
-     <p>
-         This project was coded by
-         <a href="https://github.com/Lulutosh" target="_blank">Lusanda Zuma</a> and is
-         <a href="https://github.com/Lulutosh/weather-sandbox-app.git" target="_blank"> on GitHub</a> and
-         <a href="https://profound-entremet-f31620.netlify.app/" target="_blank">hosted on Netlify</a>
-     </p>
- </footer>
- </div>
 </body>
 
 </html>
