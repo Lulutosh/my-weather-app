@@ -48,7 +48,7 @@
 
          //updates humitidy
          let humidity = document.getElementsByTagName('strong')[0];
-         humidity.innerHTML = response.data.temperature.humidity;
+         humidity.innerHTML = `${response.data.temperature.humidity}%`;
 
          //update wind
          let wind = document.getElementsByTagName('strong')[1];
