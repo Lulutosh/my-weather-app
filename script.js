@@ -1,44 +1,41 @@
  //variable that stores newDate constructor
  let current = new Date();
 
- //function that displays current day of week and time
+ //function that displays current day of week and time for top of page
  function displayDate() {
-     let dateN = document.getElementById('current-date'); //moved this to id 'current-details'
+     let dateN = document.getElementById('current-date'); 
      let daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
      let curDay = daysOfWeek[current.getDay()];
-
      let timeNow = `${curDay} ${current.getHours()}:${String(current.getMinutes()).padStart(2, '0')}`; //using padStart to include trailing 0
 
      dateN.innerHTML = timeNow;
-
  }
 
  displayDate();
 
- //function which make api call for city searched data
+
+ //function which make api call for city when searched 
  function searchCity(city) {
 
-     // make api call and upate the interface
-
+    //store api details
+    
      let apiKey = "a4f536208c7fa73d4b60d99t63da3bo2";
      let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
      console.log(apiUrl);
 
-     //use axios to get weather data and update temperatur
+     /*
+        make api call and upate the interface
+        use axios to get weather data and update temperature
+      */
      axios.get(apiUrl).then(function (response) {
-         console.log(response);
-         console.log(response.data.temperature.current);
-         console.log(response.data.condition.icon_url);
-
-         //     let weatherImg = document.createElement('img')
-         //     weatherImg.src = response.data.condition.icon_url;
-         //     console.log(weatherImg.src);
-         //    console.log(`background: url(${response.data.condition.icon_url} no - repeat fixed center)`);
-         //console.log(background: url("http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png") no - repeat fixed center);
+      
          //gets current temperature in entered city
          let temperature = response.data.temperature.current;
-         console.log(temperature);
-         //to print temperature value and weather description
+      
+         /*
+         to print temperature value and weather description
+         use Math.round function to round of temperature
+         */
          let fahValue = document.querySelector('.fah-convert');
          fahValue.innerHTML = Math.round(temperature);
 
@@ -50,27 +47,19 @@
          let humidity = document.getElementsByTagName('strong')[0];
          humidity.innerHTML = `${response.data.temperature.humidity}%`;
 
-         //update wind
+         //update wind speed
          let wind = document.getElementsByTagName('strong')[1];
          wind.innerHTML = `${response.data.wind.speed}km/h`;
-        
-         //update icon
+
+         //update icon img
          let iconElement = document.getElementById('icon');
          iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="head-img" />`
 
-         //  cityDisplay.innerHTML = `Current temperature in ${city} is ${temperature}°C`;
-         //  fahValue.innerHTML = `${Math.round(temperature * 9 / 5 + 32)} &deg;F`;
-         // let descriptionDisplay = document.querySelector('.description');
-         //descriptionDisplay.innerHTML = response.data.weather[0].description;
-         console.log(response.data.condition.description);
 
-
-         //console.log(response.data.weather[0].description);
-
-         // deleteDefaultCelsius.remove();
      }).catch(function (error) {
          console.error("Error fetching weather data:", error);
      });
+     getForecast("paris");
  }
 
  //search engine function, display the city name the user enters
@@ -93,9 +82,48 @@
  //searchCity("Pretoria");
 
 
+ //function for forecast
+ function getForecast(city) {
+     let apiKey = "a4f536208c7fa73d4b60d99t63da3bo2";
+     let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+     axios.get(apiUrl).then(displayForecast);
+     console.log(apiUrl);
+ }
 
- //storing api key for authorization and celsius-fahrenheight conversion 
- //let apiKey = "a4f536208c7fa73d4b60d99t63da3bo2";
+
+ //function that get day in object for forecast
+ function formatDay(timestamp) {
+     let date = new Date(timestamp * 1000);
+     let days = ['Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'];
+     return days[date.getDay()];
+ }
+
+ function displayForecast(response) {
+     console.log(response.data)
+
+     let forecastElement = document.querySelector('.cols-sm-5');
+
+   
+     let forecastHtml = '';
+     response.data.daily.forEach(function (day, index) {
+        if (index <= 4){
+         forecastHtml = forecastHtml +
+
+             `<div class="col-lg-2 ">
+                <p>${formatDay(day.time)}</p>
+                
+                    <img src="${day.condition.icon_url}" />
+                        <div>
+                            <span class="deg-min">${Math.round(day.temperature.minimum)} &deg;</span>
+                            <span class="deg-max">${Math.round(day.temperature.maximum)} &deg;</span>
+                        </div>
+            </div>`;
+     }
+     })
+     forecastElement.innerHTML = forecastHtml;
+    
+    
+ }
 
 
  //let formSubmit = document.getElementById('btn');
@@ -103,27 +131,6 @@
  let celsiusDis = document.querySelector('.cel-convert');
  let deleteDefaultCelsius = document.querySelector('.default-c');
 
-
- function displayForecast(){
-     let forecastElement = document.querySelector('.cols-sm-5');
-
-     let forecastDays = ['mon', 'tues', 'wed', 'thurs', 'fri'];
-     let forecastHtml = '';
-     forecastDays.forEach(function(day){
-        forecastHtml = forecastHtml +
-     
-            `<div class="col-lg-2 ">
-                <p>${day}</p>
-                    <img src="media/forecast_rain.png" alt="">
-                        <div>
-                            <span class="deg-min">14 &deg;</span>
-                            <span class="deg-max">14 &deg;</span>
-                        </div>
-            </div>`;
-     })
-     forecastElement.innerHTML = forecastHtml;
- }
-displayForecast();
 
  // Convert Celsius to Fahrenheit and Vice Versa
 
@@ -142,6 +149,7 @@ displayForecast();
      let conversion = (fahrenheitValue - 32) * 5 / 9;
      celsiusDis.innerHTML = `${Math.round(conversion)} &deg;C`;
      deleteDefaultCelsius.remove();
+      // deleteDefaultCelsius.remove(); - decide if needed??
  }
 
  fahValue.addEventListener('click', fahrenheitChange);

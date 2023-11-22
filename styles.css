@@ -155,7 +155,7 @@ div.container p {
 
 .default-c,
 .cel-convert {
-    font-size: 28px;
+    font-size: 20px;
     position: relative;
     top: -38px;
 }
@@ -198,7 +198,9 @@ p.current-details {
 }
 
 p.current-details strong {
-    color: #d5d764;
+    color: #fbff26;
+    
+    
 }
 footer{
     color: #333;
