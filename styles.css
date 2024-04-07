@@ -218,3 +218,6 @@ footer{
 .col-lg-2 img {
     width: 100%;
 }
+#microphone:hover{
+    cursor: pointer;
+}

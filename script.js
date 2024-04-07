@@ -21,7 +21,7 @@
     
      let apiKey = "a4f536208c7fa73d4b60d99t63da3bo2";
      let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-     console.log(apiUrl);
+    // console.log(apiUrl);
 
      /*
         make api call and upate the interface
@@ -61,7 +61,74 @@
      });
      getForecast("paris");
  }
+  function searchCoords(lat, lon){
+   
 
+   if(navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(showPosition);
+   }else{
+    console.log("not success")
+   }
+
+     function showPosition(position){
+       let lat = position.coords.latitude;
+       let lon = position.coords.longitude;
+
+     
+     let apiKey = "a4f536208c7fa73d4b60d99t63da3bo2";
+    // let apiUrlCurrentPos = "https://api.shecodes.io/weather/v1/current?lat=-33.8067456&lon=18.5401344&key=a4f536208c7fa73d4b60d99t63da3bo2&units=metric";
+     let apiCoordUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`; //interpolation worsk
+//     // https://api.shecodes.io/weather/v1/current?lat=${latitude}&lon=${longitude}&key=a4f536208c7fa73d4b60d99t63da3bo2&units=metric
+// console.log(apiUrlCurrentPos);
+ console.log(apiCoordUrl);
+ console.log(lat);
+ console.log(lon);
+
+ axios.get(apiCoordUrl).then(function (response) {
+    //display current city 
+
+  let cityByCoord = response.data.city;
+   
+   cityDisplay.innerHTML = cityByCoord;
+     //gets current temperature in entered city
+     let temperature = response.data.temperature.current;
+
+     /*
+     to print temperature value and weather description
+     use Math.round function to round of temperature
+     */
+     let fahValue = document.querySelector('.fah-convert');
+     fahValue.innerHTML = Math.round(temperature);
+
+     //updates description
+     let description = document.getElementById('description-weather');
+     description.innerHTML = response.data.condition.description;
+
+     //updates humitidy
+     let humidity = document.getElementsByTagName('strong')[0];
+     humidity.innerHTML = `${response.data.temperature.humidity}%`;
+
+     //update wind speed
+     let wind = document.getElementsByTagName('strong')[1];
+     wind.innerHTML = `${response.data.wind.speed}km/h`;
+
+     //update icon img
+     let iconElement = document.getElementById('icon');
+     iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="head-img" />`
+
+
+ }).catch(function (error) {
+     console.error("Error fetching weather data:", error);
+ });
+ getForecast("paris");
+ }
+
+}
+ 
+  searchCoords();
+
+ 
+ 
  //search engine function, display the city name the user enters
  let formSubmit = document.getElementById('btn');
  let cityDisplay = document.querySelector('.city-name');
@@ -154,3 +221,33 @@
 
  fahValue.addEventListener('click', fahrenheitChange);
  celsiusDis.addEventListener('click', celsiusChange);
+
+ //functionality for recording
+
+//getting element event trigger
+
+let recordElement = document.getElementById("microphone");
+function record(){
+    alert('hey');
+}
+
+
+//NTS: city parameter is how city is extracted
+
+//geolation api
+
+//recordElement.addEventListener('click', gotLocation);
+
+//get user lat and longitude thorugh geolocation api
+//  function gotLocation (position){
+//          const {coords} = position;
+//      let lat = coords.latitude;
+//      let long = coords.longitude;
+//      console.log(lat);
+//      console.log(long);
+    
+//  }
+
+
+//  navigator.geolocation.getCurrentPosition(gotLocation);
+recordElement.addEventListener('click', record);
