@@ -226,10 +226,6 @@
 
 //getting element event trigger
 
-let recordElement = document.getElementById("microphone");
-function record(){
-    alert('hey');
-}
 
 
 //NTS: city parameter is how city is extracted
@@ -248,6 +244,25 @@ function record(){
     
 //  }
 
+//webspeech api
+
+
+let recordElement = document.getElementById("microphone");
+
+// function record() {
+//     alert('hey');
+// }
 
 //  navigator.geolocation.getCurrentPosition(gotLocation);
-recordElement.addEventListener('click', record);
+recordElement.addEventListener('click', () => {
+    var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+    SpeechRecognition.lang = "en-US";
+
+});
+const recognition = new webkitSpeechRecognition() || new SpeechRecognition();
+
+;
+
+
+
+
